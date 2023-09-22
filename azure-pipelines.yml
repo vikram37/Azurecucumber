@@ -7,10 +7,17 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-- job: 'Build'
-  displayName: 'Build Maven project'
-  steps:
+steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        
+        export BROWSER=${BROWSER}
+
+
+
   - task: Maven@3
     inputs:
       mavenPomFile: 'pom.xml'
